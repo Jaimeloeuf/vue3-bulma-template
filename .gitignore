@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# App build output
+dist/
+
+# Firebase cache
+.firebase/
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env*
+
+# TypeScript incremental build cache file
+tsconfig.tsbuildinfo

@@ -1,0 +1,19 @@
+{
+  "name": "vue3-bulma-template",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "npx vite --port 8080",
+    "preview": "npx vite preview --port 8080",
+    "build": "npx vite build"
+  },
+  "dependencies": {
+    "bulma": "^0.9.3",
+    "simpler-fetch": "^6.1.1",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "vite": "^2.9.1"
+  }
+}
