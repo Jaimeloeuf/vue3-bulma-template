@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bulma": "^0.9.3",
+    "pinia": "^2.0.13",
     "simpler-fetch": "^6.1.1",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"

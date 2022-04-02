@@ -39,12 +39,13 @@ npm run build
 ## Dependencies
 - vue3
 - vue router
+- pinia for state management
 - bulma as the main styling dependency
 - simpler-fetch as the basic API library
 
 
 ## Technical details and notes
-- The vue router uses `# hashed based routing` rather than history mode
+- vue router is configured to use `# hashed based routing` rather than history mode
 
 
 ## License & Author

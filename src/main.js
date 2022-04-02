@@ -14,8 +14,9 @@ oof._baseUrl =
 // oof._baseUrl = import.meta.env.VITE_API_URL;
 
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import router from "./router.js";
 import App from "./App.vue";
 
 // Create new vue app
-createApp(App).use(router).mount("#app");
+createApp(App).use(router).use(createPinia()).mount("#app");
