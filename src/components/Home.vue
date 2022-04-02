@@ -15,6 +15,33 @@
         {{ mainStore }}
       </code>
     </div>
+
+    <div class="box m-3">
+      <p class="subtitle">Test API method</p>
+
+      <div class="columns">
+        <div class="column is-half">
+          <button
+            class="button is-light is-danger is-fullwidth"
+            @click="value = undefined"
+          >
+            Clear Data
+          </button>
+        </div>
+        <div class="column is-half">
+          <button
+            class="button is-light is-success is-fullwidth"
+            @click="getData"
+          >
+            Get Data
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-5" v-if="value">
+        <code>{{ value }}</code>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,8 +49,14 @@
 import { mapState, mapStores } from "pinia";
 import { useStore } from "../store";
 
+import { oof } from "simpler-fetch";
+
 export default {
   name: "Home",
+
+  data() {
+    return { value: undefined };
+  },
 
   computed: {
     // Access state data from store inside the component
@@ -33,6 +66,19 @@ export default {
     // https://pinia.vuejs.org/cookbook/options-api.html#giving-access-to-the-whole-store
     // The store will be accessible as its id + 'Store'
     ...mapStores(useStore),
+  },
+
+  methods: {
+    // Method to call API for data and set data variable with response
+    async getData() {
+      const res = await oof
+        .GET("https://jsonplaceholder.typicode.com/todos/1")
+        .runJSON()
+        .catch((e) => alert(`Error: ${e.message}`));
+
+      if (!res?.ok) return alert("Failed to get data");
+      this.value = res;
+    },
   },
 };
 </script>
