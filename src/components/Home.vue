@@ -9,6 +9,27 @@
     <br />
 
     <div class="box m-3">
+      <label>
+        Enter a new name
+
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input
+              type="text"
+              class="input"
+              v-model="newName"
+              @keypress.enter="updateName"
+              placeholder="New Name"
+            />
+          </div>
+          <div class="control">
+            <button class="button is-info" @click="updateName">Update</button>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <div class="box m-3">
       All data in mainStore:
       <br />
       <code>
@@ -46,7 +67,7 @@
 </template>
 
 <script>
-import { mapState, mapStores } from "pinia";
+import { mapState, mapWritableState, mapStores } from "pinia";
 import { useStore } from "../store";
 
 import { oof } from "simpler-fetch";
@@ -55,12 +76,13 @@ export default {
   name: "Home",
 
   data() {
-    return { value: undefined };
+    return { newName: undefined, value: undefined };
   },
 
   computed: {
     // Access state data from store inside the component
-    ...mapState(useStore, ["name", "isAdmin"]),
+    ...mapState(useStore, ["isAdmin"]), // Readonly data
+    ...mapWritableState(useStore, ["name"]), // Writable data
 
     // Alternatively, use this to access the whole store in your component
     // https://pinia.vuejs.org/cookbook/options-api.html#giving-access-to-the-whole-store
@@ -69,6 +91,10 @@ export default {
   },
 
   methods: {
+    updateName() {
+      this.name = this.newName;
+    },
+
     // Method to call API for data and set data variable with response
     async getData() {
       const res = await oof
