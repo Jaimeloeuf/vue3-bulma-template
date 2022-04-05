@@ -30,6 +30,19 @@
     </div>
 
     <div class="box m-3">
+      <label>
+        Direct 2 way binding using v-model with state variable from store
+
+        <input
+          type="text"
+          class="input"
+          v-model="name"
+          placeholder="XXX to directly binded to store"
+        />
+      </label>
+    </div>
+
+    <div class="box m-3">
       All data in mainStore:
       <br />
       <code>
