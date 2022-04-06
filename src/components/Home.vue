@@ -43,8 +43,18 @@
     </div>
 
     <div class="box m-3">
-      All data in mainStore:
-      <br />
+      <div class="columns is-vcentered">
+        <div class="column">
+          <p class="subtitle">All data in mainStore</p>
+        </div>
+
+        <div class="column is-narrow">
+          <button class="button is-light is-danger" @click="reset">
+            Reset State
+          </button>
+        </div>
+      </div>
+
       <code>
         {{ mainStore }}
       </code>
@@ -106,6 +116,13 @@ export default {
   methods: {
     updateName() {
       this.name = this.newName;
+      this.newName = undefined;
+    },
+
+    reset() {
+      // Use the store's id + 'Store' as the name of the store
+      // Access any actions associated with the imported store like `this.mainStore.myAction()`
+      this.mainStore.$reset();
     },
 
     // Method to call API for data and set data variable with response
