@@ -49,6 +49,12 @@
         </div>
 
         <div class="column is-narrow">
+          <button class="button is-light is-warning" @click="updateRandom">
+            Update 'random'
+          </button>
+        </div>
+
+        <div class="column is-narrow">
           <button class="button is-light is-danger" @click="reset">
             Reset State
           </button>
@@ -90,7 +96,7 @@
 </template>
 
 <script>
-import { mapState, mapWritableState, mapStores } from "pinia";
+import { mapState, mapWritableState, mapActions, mapStores } from "pinia";
 import { useStore } from "../store";
 
 import { oof } from "simpler-fetch";
@@ -114,6 +120,9 @@ export default {
   },
 
   methods: {
+    // Import an action to use directly in the component
+    ...mapActions(useStore, ["updateRandom"]),
+
     updateName() {
       this.name = this.newName;
       this.newName = undefined;

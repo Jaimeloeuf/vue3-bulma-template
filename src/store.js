@@ -8,8 +8,14 @@ export const useStore = defineStore("main", {
     // all these properties will have their type inferred automatically
     name: "User",
     isAdmin: true,
+
+    random: 0,
   }),
 
   // https://pinia.vuejs.org/core-concepts/actions.html
-  actions: {},
+  actions: {
+    updateRandom() {
+      this.random = Math.trunc(Math.random() * 1000);
+    },
+  },
 });
