@@ -2,11 +2,14 @@
   <div class="section">
     <p class="title">Vue3 Bulma Template</p>
 
-    name: {{ name }}
-    <br />
+    <div class="box m-3">
+      <p class="subtitle">State variable from store</p>
 
-    isAdmin: {{ isAdmin }}
-    <br />
+      name: {{ name }}
+      <br />
+
+      random: {{ random }}
+    </div>
 
     <div class="box m-3">
       <label>
@@ -110,7 +113,7 @@ export default {
 
   computed: {
     // Access state data from store inside the component
-    ...mapState(useStore, ["isAdmin"]), // Readonly data
+    ...mapState(useStore, ["random"]), // Readonly data
     ...mapWritableState(useStore, ["name"]), // Writable data
 
     // Alternatively, use this to access the whole store in your component

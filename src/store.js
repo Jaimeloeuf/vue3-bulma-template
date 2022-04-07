@@ -7,8 +7,6 @@ export const useStore = defineStore("main", {
   state: () => ({
     // all these properties will have their type inferred automatically
     name: "User",
-    isAdmin: true,
-
     random: 0,
   }),
 
