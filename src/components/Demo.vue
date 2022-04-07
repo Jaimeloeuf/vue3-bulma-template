@@ -105,7 +105,7 @@ import { useStore } from "../store";
 import { oof } from "simpler-fetch";
 
 export default {
-  name: "Home",
+  name: "Demo",
 
   data() {
     return { newName: undefined, value: undefined };
