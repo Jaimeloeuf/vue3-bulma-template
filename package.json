@@ -9,6 +9,7 @@
   "dependencies": {
     "bulma": "^0.9.3",
     "pinia": "^2.0.13",
+    "pinia-plugin-persistedstate": "^1.5.1",
     "simpler-fetch": "^6.1.1",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"

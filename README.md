@@ -40,6 +40,7 @@ npm run build
 - vue3
 - vue router
 - pinia for state management
+- pinia-plugin-persistedstate to persist state across sessions in localStorage
 - bulma as the main styling dependency
 - simpler-fetch as the basic API library
 

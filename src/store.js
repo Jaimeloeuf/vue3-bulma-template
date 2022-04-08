@@ -16,4 +16,10 @@ export const useStore = defineStore("main", {
       this.random = Math.trunc(Math.random() * 1000);
     },
   },
+
+  // https://www.npmjs.com/package/pinia-plugin-persistedstate
+  // Persists this store's state in localStorage to reuse across sessions
+  // Note that this is not efficient for large to extremely large state trees,
+  // as on every state change, the entire tree is serialized and saved.
+  persist: true,
 });
