@@ -1,6 +1,7 @@
 <template>
   <div class="section">
-    <p class="title">Vue3 Bulma Template</p>
+    <!-- Named slot, see usage in Home.vue -->
+    <slot name="title"></slot>
 
     <div class="box m-3">
       <p class="subtitle">State variable from store</p>
