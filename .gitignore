@@ -7,6 +7,10 @@ yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+
 # Dependency directories
 node_modules
 
