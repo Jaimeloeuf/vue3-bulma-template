@@ -19,11 +19,11 @@
         <div class="field has-addons">
           <div class="control is-expanded">
             <input
+              v-model="newName"
               type="text"
               class="input"
-              v-model="newName"
-              @keypress.enter="updateName"
               placeholder="New Name"
+              @keypress.enter="updateName"
             />
           </div>
           <div class="control">
@@ -38,9 +38,9 @@
         Direct 2 way binding using v-model with state variable from store
 
         <input
+          v-model="name"
           type="text"
           class="input"
-          v-model="name"
           placeholder="XXX to directly binded to store"
         />
       </label>
@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <div class="mt-5" v-if="value">
+      <div v-if="value" class="mt-5">
         <code>{{ value }}</code>
       </div>
     </div>
