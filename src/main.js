@@ -16,7 +16,7 @@ oof._baseUrl =
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
-import router from "./router.js";
+import router from "./router/index";
 import App from "./App.vue";
 
 // Create new vue app

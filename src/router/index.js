@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "../views/Home.vue";
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -27,14 +27,14 @@ export default createRouter({
     // {
     //   path: "/login",
     //   name: "login",
-    //   component: () => import("./views/Login.vue"),
+    //   component: () => import("../views/Login.vue"),
     // },
 
     /* Public routes */
     {
       path: "/:pathMatch(.*)*",
       name: "404",
-      component: () => import("./views/404.vue"),
+      component: () => import("../views/404.vue"),
     },
   ],
 });
