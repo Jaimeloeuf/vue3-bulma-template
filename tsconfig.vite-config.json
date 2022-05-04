@@ -1,0 +1,10 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "include": ["vite.config.*"],
+  "compilerOptions": {
+    // Composite true is fine, but it will make "declaration" true also
+    "composite": true,
+
+    "types": ["node"]
+  }
+}

@@ -13,10 +13,12 @@
   </Demo>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import Demo from "../components/Demo.vue";
 
-export default {
+export default defineComponent({
   name: "Home",
 
   components: { Demo },
@@ -30,5 +32,5 @@ export default {
     // binded to the child component, the child component prop will also be updated.
     setInterval(() => (this.timeValue = Date.now()), 1000);
   },
-};
+});
 </script>

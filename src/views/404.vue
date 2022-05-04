@@ -1,5 +1,5 @@
-<script setup>
-const location = window.location.toString();
+<script setup lang="ts">
+const loc = window.location.toString();
 
 // An example for a issue reporting function
 // async function report() {
@@ -9,7 +9,7 @@ const location = window.location.toString();
 //   const res = await oof
 //     .POST("/error")
 //     .header(await getAuthHeader())
-//     .data({ error: "404 route", data: location })
+//     .data({ error: "404 route", data: loc })
 //     .runJSON()
 //     .catch((e) => alert(`Error: ${e.message}`));
 
@@ -23,7 +23,7 @@ const location = window.location.toString();
       <p class="title is-3">Page Not Found</p>
       <br />
 
-      <p class="subtitle">"{{ location }}"</p>
+      <p class="subtitle">"{{ loc }}"</p>
 
       <div class="columns is-vcentered">
         <div class="column">

@@ -6,7 +6,7 @@
     <div class="box m-3">
       <p class="subtitle mb-2">Prop value from parent component (Home.vue)</p>
 
-      {{ Date(timeAsProp) }}
+      {{ new Date(timeAsProp) }}
     </div>
 
     <div class="box m-3">
@@ -105,13 +105,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import { mapState, mapWritableState, mapActions, mapStores } from "pinia";
 import { useStore } from "../store";
 
 import { oof } from "simpler-fetch";
 
-export default {
+export default defineComponent({
   name: "Demo",
 
   // See documentation on using props as initial value without subscribing to changes
@@ -168,5 +170,5 @@ export default {
       this.value = res;
     },
   },
-};
+});
 </script>
