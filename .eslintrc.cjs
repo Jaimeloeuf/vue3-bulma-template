@@ -37,5 +37,11 @@ module.exports = {
     // However this becomes too restrictive, so as long as components
     // are carefully named, it should not be a problem!
     "vue/multi-word-component-names": "off",
+
+    // This rule is included by both "plugin:vue/vue3-strongly-recommended" and "plugin:vue/vue3-recommended"
+    // This rule prevents the use of camelCase HTML attributes when used for passing props in a parent component.
+    // This is disabled because by using this rule, there is a mismatch between the prop
+    // name defined in the child component and the prop name used in the parent component.
+    "vue/attribute-hyphenation": ["error", "never"],
   },
 };

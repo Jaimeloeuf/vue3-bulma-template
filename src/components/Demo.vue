@@ -4,6 +4,12 @@
     <slot name="title"></slot>
 
     <div class="box m-3">
+      <p class="subtitle mb-2">Prop value from parent component (Home.vue)</p>
+
+      {{ Date(timeAsProp) }}
+    </div>
+
+    <div class="box m-3">
       <p class="subtitle">State variable from store</p>
 
       name: {{ name }}
@@ -107,6 +113,19 @@ import { oof } from "simpler-fetch";
 
 export default {
   name: "Demo",
+
+  // See documentation on using props as initial value without subscribing to changes
+  // https://vuejs.org/guide/components/props.html#one-way-data-flow
+  props: {
+    timeAsProp: {
+      type: Number,
+      required: true,
+      default: Date.now(),
+
+      // See also: prop validation
+      // https://vuejs.org/guide/components/props.html#prop-validation
+    },
+  },
 
   data() {
     return { newName: undefined, value: undefined };
