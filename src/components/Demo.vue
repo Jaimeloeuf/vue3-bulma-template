@@ -109,7 +109,7 @@
 import { defineComponent } from "vue";
 
 import { mapState, mapWritableState, mapActions, mapStores } from "pinia";
-import { useStore } from "../store";
+import { useStore } from "../store/index";
 
 import { oof } from "simpler-fetch";
 
