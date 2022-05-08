@@ -28,18 +28,9 @@ defineProps({
 
 const mainStore = useStore();
 
-const random = mainStore.random;
-const name = mainStore.name;
-
-const updateRandom = mainStore.updateRandom;
-
-function reset() {
-  mainStore.$reset();
-}
-
 function updateName() {
-  mainStore.name = newName;
-  newName = undefined;
+  mainStore.name = newName.value;
+  newName.value = undefined;
 }
 
 // Method to call API for data and set data variable with response
@@ -50,7 +41,7 @@ async function getData() {
     .catch((e) => alert(`Error: ${e.message}`));
 
   if (!res?.ok) return alert("Failed to get data");
-  value = res;
+  value.value = res;
 }
 </script>
 
@@ -68,10 +59,10 @@ async function getData() {
     <div class="box m-3">
       <p class="subtitle">State variable from store</p>
 
-      name: {{ name }}
+      name: {{ mainStore.name }}
       <br />
 
-      random: {{ random }}
+      random: {{ mainStore.random }}
     </div>
 
     <div class="box m-3">
@@ -100,7 +91,7 @@ async function getData() {
         Direct 2 way binding using v-model with state variable from store
 
         <input
-          v-model="name"
+          v-model="mainStore.name"
           type="text"
           class="input"
           placeholder="XXX to directly binded to store"
@@ -115,13 +106,16 @@ async function getData() {
         </div>
 
         <div class="column is-narrow">
-          <button class="button is-light is-warning" @click="updateRandom">
+          <button
+            class="button is-light is-warning"
+            @click="mainStore.updateRandom"
+          >
             Update 'random'
           </button>
         </div>
 
         <div class="column is-narrow">
-          <button class="button is-light is-danger" @click="reset">
+          <button class="button is-light is-danger" @click="mainStore.$reset">
             Reset State
           </button>
         </div>
