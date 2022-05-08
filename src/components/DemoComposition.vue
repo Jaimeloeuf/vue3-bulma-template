@@ -1,4 +1,9 @@
 <script setup lang="ts">
+// Unlike using Options API with script tags, the component name cannot
+// be defined inside this setup block, which means that if only the
+// setup block is used, then the name of the component in the vue js dev
+// tools will show the name in which this component is imported as.
+
 import { ref } from "vue";
 
 import { oof } from "simpler-fetch";

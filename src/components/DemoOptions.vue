@@ -114,7 +114,7 @@ import { useStore } from "../store/index";
 import { oof } from "simpler-fetch";
 
 export default defineComponent({
-  name: "Demo",
+  name: "DemoOptions",
 
   // See documentation on using props as initial value without subscribing to changes
   // https://vuejs.org/guide/components/props.html#one-way-data-flow
