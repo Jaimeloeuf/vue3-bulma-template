@@ -2,19 +2,20 @@
 const loc = window.location.toString();
 
 // An example for a issue reporting function
-// async function report() {
-//   const { getAuthHeader } = await import("../firebase.js");
-//   const { oof } = await import("simpler-fetch");
+async function report() {
+  alert("Error reported!");
 
-//   const res = await oof
-//     .POST("/error")
-//     .header(await getAuthHeader())
-//     .data({ error: "404 route", data: loc })
-//     .runJSON()
-//     .catch((e) => alert(`Error: ${e.message}`));
+  // Sample error reporting logic
+  // const { oof } = await import("simpler-fetch");
 
-//   if (res.ok) alert(`Error reported, case number: ${res.id}`);
-// }
+  // const res = await oof
+  //   .POST("/error")
+  //   .data({ error: "404 route", data: loc })
+  //   .runJSON()
+  //   .catch((e) => alert(`Error: ${e.message}`));
+
+  // if (res.ok) alert(`Error reported, case number: ${res.id}`);
+}
 </script>
 
 <template>
