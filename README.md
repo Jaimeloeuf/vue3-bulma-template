@@ -1,6 +1,8 @@
 # vue3-bulma-template
 A simple to use frontend template based on vue3 and bulma.
 
+This TypeScript template should help you start developing Vue 3 applications quickly and easily, and is designed for building applications that is mobile friendly with persisted state across sessions.
+
 [See below on how to setup and customize this template](#setup-steps)
 
 
@@ -51,6 +53,12 @@ npm run build
 - pinia-plugin-persistedstate to persist state across sessions in localStorage
 - bulma as the main styling dependency
 - simpler-fetch as the basic API library
+
+
+## DevDependencies
+- prettier
+- Eslint
+    - Eslint follows https://vuejs.org/style-guide/
 
 
 ## Technical details and notes
