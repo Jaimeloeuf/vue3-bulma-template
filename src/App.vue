@@ -1,5 +1,14 @@
 <template>
   <!-- Center router view element horizontally -->
+  <!--
+    By passing this attribute to child components, the child components
+    cannot be a fragment (return multiple root nodes) as vue js will
+    not know which node to bind the fallthrough attribute to.
+
+    See reference:
+    https://v3-migration.vuejs.org/new/fragments.html#overview
+    https://vuejs.org/guide/components/attrs.html#fallthrough-attributes
+  -->
   <router-view class="container" />
 </template>
 
