@@ -59,8 +59,8 @@ npm run build
 
 ## DevDependencies
 - prettier
-- Eslint
-    - Eslint follows https://vuejs.org/style-guide/
+- Eslint, this template follows the [Vue.js style guide](https://vuejs.org/style-guide/)
+- `simple-github-pages-deploy` is ran using [npx](https://www.npmjs.com/package/npx) when deploying to github pages, and so it will only be temporarily installed if using github pages.
 
 
 ## Technical details and notes
@@ -88,7 +88,17 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ## Deployment
 ### Github Pages
-Github uses jekell to build and deploy your static site to github pages, and so, there are some filenames that are not allowed such as files that start with a period `.` or underscore `_`. However this poses a problem as some build output files have underscore characters.
+To deploy using Github Pages, build the site first before running deployment.
+```shell
+# Build the site and write build output to ./docs
+# The default npm run build writes build output to ./dist
+npm run build:gh-pages
+
+# Deploys ./docs folder to github pages
+npm run deploy:gh-pages
+```
+
+Github uses jekell to build and deploy your static site to github pages, and so, there are some filenames that are not allowed such as files that start with a period `.` or underscore `_` which poses a problem as some build output files have underscore characters.
 
 The solution to this is to ensure that a [.nojekyll](./public/.nojekyll) file is placed in the root of the build output directory, which for github pages is [./docs](./docs). However, since it is troublesome to always manually create the file after building, a `.nojekyll` file is placed in [./public](./public/) so that it is automatically copied into the root of the build output directory on every build.
 
