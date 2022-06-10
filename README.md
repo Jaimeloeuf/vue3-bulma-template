@@ -43,6 +43,8 @@ npm run build
     - See <https://vitejs.dev/guide/env-and-mode.html> for reference on how to use `.env` files
     - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.js](./src/main.js)
 1. Update the [favicon](./public/favicon.ico)
+1. If you are **not using github pages** to deploy and host your application, you may want to consider deleting the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output. This is not required and can be left alone for almost all other deployment and hosting strategies.
+    - See section on [github-pages deployment](#github-pages) for more details.
 
 
 ## Dependencies
@@ -82,6 +84,17 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
     2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+
+## Deployment
+### Github Pages
+Github uses jekell to build and deploy your static site to github pages, and so, there are some filenames that are not allowed such as files that start with a period `.` or underscore `_`. However this poses a problem as some build output files have underscore characters.
+
+The solution to this is to ensure that a [.nojekyll](./public/.nojekyll) file is placed in the root of the build output directory, which for github pages is [./docs](./docs). However, since it is troublesome to always manually create the file after building, a `.nojekyll` file is placed in [./public](./public/) so that it is automatically copied into the root of the build output directory on every build.
+
+References:
+- <https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll>
+- <https://github.community/t/unable-to-access-resources-in-folder-with-name-starting-with/10505>
 
 
 ## License & Author
