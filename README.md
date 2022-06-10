@@ -3,34 +3,25 @@ A simple to use frontend template based on vue3 and bulma.
 
 This TypeScript template should help you start developing Vue 3 applications quickly and easily, and is designed for building applications that is mobile friendly with persisted state across sessions.
 
-[See below on how to setup and customize this template](#setup-steps)
+Get started by
+1. Either
+    - Clicking the `use this template` button on github
+    - Download this repo as a ZIP file (so it will not have any `.git` config) and extracting it
+    - Forking this repo
+1. [See steps below on how to setup and customize this template](#setup-steps)
 
 
 ## Basic commands
-Get started by installing dependencies
-```shell
-npm i
-```
-
-Run in development mode
-```shell
-npm run serve
-```
-
-Lint source files with ESLint
-```shell
-npm run lint
-```
-
-Preview production build locally
-```shell
-npm run preview
-```
-
-Build for production deployment
-```shell
-npm run build
-```
+- Get started by installing dependencies
+    - `npm i`
+- Run in development mode
+    - `npm run serve`
+- Lint source files with ESLint
+    - `npm run lint`
+- Preview production build locally
+    - `npm run preview`
+- Build for production deployment
+    - `npm run build`
 
 
 ## Setup steps
@@ -43,6 +34,8 @@ npm run build
     - See <https://vitejs.dev/guide/env-and-mode.html> for reference on how to use `.env` files
     - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.js](./src/main.js)
 1. Update the [favicon](./public/favicon.ico)
+1. If you are **using github pages** to deploy and host your application, you might need to update your [vite config file](./vite.config.ts) to set the production base URL path as your repo's name.
+    - See section on [github-pages deployment](#github-pages) for more details.
 1. If you are **not using github pages** to deploy and host your application, you may want to consider deleting the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output. This is not required and can be left alone for almost all other deployment and hosting strategies.
     - See section on [github-pages deployment](#github-pages) for more details.
 
@@ -88,7 +81,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ## Deployment
 ### Github Pages
-To deploy using Github Pages, build the site first before running deployment.
+To use Github Pages, ensure that the production base URL is set properly in your [vite config file](./vite.config.ts) before building and deploying the site.
 ```shell
 # Build the site and write build output to ./docs
 # The default npm run build writes build output to ./dist
