@@ -8,29 +8,28 @@
     on router-view element in App.vue will be inherited here on this div.
   -->
   <div>
-    <!--
-      Component selector tab is wrapped in a sticky navbar.
-      See also the class applied to the html tag in index.html
-    -->
-    <nav class="navbar is-fixed-top">
-      <div class="tabs is-centered">
-        <ul>
-          <li
-            :class="{ 'is-active': API_type === 'Options' }"
+    <div class="section mx-3 py-0">
+      <div class="columns">
+        <div class="column">
+          <button
+            class="button is-light is-fullwidth"
+            :class="{ 'is-success': API_type === 'Options' }"
             @click="API_type = 'Options'"
           >
-            <a>Options API</a>
-          </li>
-
-          <li
-            :class="{ 'is-active': API_type === 'Composition' }"
+            Options API
+          </button>
+        </div>
+        <div class="column">
+          <button
+            class="button is-light is-fullwidth"
+            :class="{ 'is-success': API_type === 'Composition' }"
             @click="API_type = 'Composition'"
           >
-            <a>Composition API</a>
-          </li>
-        </ul>
+            Composition API
+          </button>
+        </div>
       </div>
-    </nav>
+    </div>
 
     <!--
       Dynamic component used based on the tab selected
