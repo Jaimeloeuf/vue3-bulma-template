@@ -19,7 +19,7 @@ async function report() {
 </script>
 
 <template>
-  <div class="columns is-multiline mx-6 my-6 px-6 py-6">
+  <div class="columns is-multiline mx-6 my-6">
     <div class="column is-full">
       <p class="title is-3">Page Not Found</p>
       <br />
