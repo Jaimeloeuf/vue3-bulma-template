@@ -1,4 +1,10 @@
+<script setup lang="ts">
+import Navbar from "./components/Navbar.vue";
+</script>
+
 <template>
+  <Navbar />
+
   <!-- Center router view element horizontally -->
   <!--
     By passing this attribute to child components, the child components
