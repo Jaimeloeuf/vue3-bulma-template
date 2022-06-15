@@ -30,6 +30,7 @@ Get started by
     - Set the package name and version
     - Remember to run `npm i` after update to get npm to update your `package-lock.json` file
 1. Update the title of your application in [index.html](./index.html)
+1. Start creating your Vue SFCs with the 2 provided templates using either the [Option API](./src/components/TemplateOptions.vue) or the [Composition API](./src/components/TemplateComposition.vue)
 1. Create a [.env](./.env) file in your root directory to set environment variables
     - See <https://vitejs.dev/guide/env-and-mode.html> for reference on how to use `.env` files
     - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.js](./src/main.js)
