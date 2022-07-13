@@ -71,6 +71,10 @@
 </template>
 
 <script lang="ts">
+// Can use @ symbol if vite is configured to resolve properly
+// See vite.config.ts in project root for more details
+// import Demo from "@/components/Demo.vue";
+
 import { defineComponent } from "vue";
 
 import DemoOptions from "../components/DemoOptions.vue";
