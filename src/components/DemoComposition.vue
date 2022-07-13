@@ -10,8 +10,8 @@ import { oof } from "simpler-fetch";
 
 import { useStore } from "../store/index";
 
-let newName = ref<string | undefined>(undefined);
-let value = ref<object | undefined>(undefined);
+const newName = ref<string | undefined>(undefined);
+const value = ref<object | undefined>(undefined);
 
 // See documentation on using props as initial value without subscribing to changes
 // https://vuejs.org/guide/components/props.html#one-way-data-flow
@@ -26,6 +26,7 @@ defineProps({
   },
 });
 
+// Cannot destructure out values as it will lose its reactivity
 const mainStore = useStore();
 
 function updateName() {
