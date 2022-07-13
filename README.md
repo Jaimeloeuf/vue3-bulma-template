@@ -1,14 +1,16 @@
 # vue3-bulma-template
-A simple to use frontend template based on vue3 and bulma.
+A simple to use frontend template based on [`vue3`](https://v3.vuejs.org/guide/introduction.html) and [`bulma`](https://bulma.io/).
 
-This TypeScript template should help you start developing Vue 3 applications quickly and easily, and is designed for building applications that is mobile friendly with persisted state across sessions.
+This TypeScript template helps you get started with developing Vue 3 applications quickly and easily, and is designed for building applications that is mobile friendly with persisted state across sessions.
 
 Get started by
-1. Either
-    - Clicking the `use this template` button on github
-    - Download this repo as a ZIP file (so it will not have any `.git` config) and extracting it
-    - Forking this repo
-1. [See steps below on how to setup and customize this template](#setup-steps)
+1. Either (in order of preference)
+    1. Clicking the `use this template` button on github
+    1. Download this repo as a ZIP file (so it will not have any `.git` config) and extracting it
+    1. Clone this repo locally and **manually deleting the `.git` folder**
+        - Please note that you **MUST** delete the `.git` folder to use git yourself!!
+    1. Forking this repo
+1. Setup and customize this template by [following the steps below](#setup-steps)
 
 
 ## Basic commands
@@ -46,18 +48,18 @@ Get started by
 
 
 ## Dependencies
-- TypeScript as the language
-- vue3
-- vue router
-- pinia for state management
-- pinia-plugin-persistedstate to persist state across sessions in localStorage
-- bulma as the main styling dependency
-- simpler-fetch as the basic API library
+- `TypeScript` as the language
+- `vue3`
+- `vue-router`
+- `pinia` for state management
+- `pinia-plugin-persistedstate` to persist state across sessions in localStorage
+- `bulma` CSS library as the main styling dependency
+- `simpler-fetch` as the API library
 
 
 ## DevDependencies
-- prettier
-- Eslint, this template follows the [Vue.js style guide](https://vuejs.org/style-guide/)
+- `prettier`
+- `eslint`, this template is configured to follow the [Vue.js style guide](https://vuejs.org/style-guide/)
 - `simple-github-pages-deploy` is ran using [npx](https://www.npmjs.com/package/npx) when deploying to github pages, and so it will only be temporarily installed if using github pages.
 
 
