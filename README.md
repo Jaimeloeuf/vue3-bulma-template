@@ -20,8 +20,12 @@ Get started by
     - `npm run lint`
 - Preview production build locally
     - `npm run preview`
+- Run type check
+    - `npm run typecheck`
 - Build for production deployment
     - `npm run build`
+- Run type check before full production build
+    - `npm run build:full`
 
 
 ## Setup steps
