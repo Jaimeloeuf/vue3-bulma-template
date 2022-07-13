@@ -1,4 +1,5 @@
 {
+  // Using reference to specify a seperate tsconfig for the vite config file
   // https://www.typescriptlang.org/docs/handbook/project-references.html
   "references": [{ "path": "./tsconfig.vite-config.json" }],
 
