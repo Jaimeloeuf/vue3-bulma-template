@@ -41,8 +41,10 @@ Get started by
     - See <https://vitejs.dev/guide/env-and-mode.html> for reference on how to use `.env` files
     - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.js](./src/main.js)
 1. Update the [favicon](./public/favicon.ico)
-1. If you are **using github pages** to deploy and host your application, you might need to update your [vite config file](./vite.config.ts) to set the production base URL path as your repo's name.
-    - See section on [github-pages deployment](#github-pages) for more details.
+1. If you are **using github pages** to deploy and host your application, you need to update your [vite config file](./vite.config.ts)
+    1. You need to delete the `base` property used for demo purposes.
+    1. You might need to set the production base URL path as your repo's name if your repo is not the default account/organisation repo.
+        - See section on [github-pages deployment](#github-pages) for more details.
 1. If you are **not using github pages** to deploy and host your application, you may want to consider deleting the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output. This is not required and can be left alone for almost all other deployment and hosting strategies.
     - See section on [github-pages deployment](#github-pages) for more details.
 
