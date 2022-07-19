@@ -45,8 +45,10 @@ Get started by
     1. You need to delete the `base` property used for demo purposes.
     1. You might need to set the production base URL path as your repo's name if your repo is not the default account/organisation repo.
         - See section on [github-pages deployment](#github-pages) for more details.
-1. If you are **not using github pages** to deploy and host your application, you may want to consider deleting the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output. This is not required and can be left alone for almost all other deployment and hosting strategies.
-    - See section on [github-pages deployment](#github-pages) for more details.
+1. If you are **not using github pages** to deploy and host your application
+    1. Delete [./docs](./docs) folder before you commit.
+    1. You may want to consider deleting the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output. This is not required and can be left alone for almost all other deployment and hosting strategies.
+        - See section on [github-pages deployment](#github-pages) for more details.
 
 
 ## Dependencies
