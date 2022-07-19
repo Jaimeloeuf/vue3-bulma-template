@@ -129,7 +129,9 @@ export default defineComponent({
     },
   },
 
-  data() {
+  // @todo If using this type, then the this.name = this.newName assignment in updateName method errors out...?
+  // @todo Setting newName to undefined for now to prevent the error
+  data(): { newName?: undefined; value?: object } {
     return { newName: undefined, value: undefined };
   },
 
