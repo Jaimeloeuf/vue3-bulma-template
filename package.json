@@ -7,9 +7,10 @@
     "preview": "npx vite preview --port 8080",
     "typecheck": "npx vue-tsc --noEmit",
     "build": "npx vite build",
-    "build:full": "npm run typecheck && npm run vite build",
-    "build:gh-pages": "npx vite build --mode github-pages --outDir ./docs",
-    "deploy:gh-pages": "npx simple-github-pages-deploy"
+    "build:delete": "npx rimraf ./dist",
+    "build:full": "npm run typecheck && npm run build:delete && npm run build",
+    "build:gh-pages": "npm run typecheck && npm run build:delete && npx vite build --mode github-pages",
+    "deploy:gh-pages": "npx gh-pages -d dist"
   },
   "dependencies": {
     "bulma": "^0.9.4",

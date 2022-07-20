@@ -42,13 +42,12 @@ Get started by
     - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.js](./src/main.js)
 1. Update the [favicon](./public/favicon.ico)
 1. If you are **using github pages** to deploy and host your application, you need to update your [vite config file](./vite.config.ts)
-    1. You need to delete the `base` property used for demo purposes.
     1. You might need to set the production base URL path as your repo's name if your repo is not the default account/organisation repo.
         - See section on [github-pages deployment](#github-pages) for more details.
-1. If you are **not using github pages** to deploy and host your application
-    1. Delete [./docs](./docs) folder before you commit.
-    1. You may want to consider deleting the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output. This is not required and can be left alone for almost all other deployment and hosting strategies.
-        - See section on [github-pages deployment](#github-pages) for more details.
+    1. You need to delete the `base` property used for demo purposes.
+1. If you are **not using github pages** to deploy and host your application, you can delete the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output.
+    - The file is there to make github pages deployments work, it is not required and can be left alone for almost all other deployment and hosting strategies.
+    - See section on [github-pages deployment](#github-pages) for more details.
 
 
 ## Dependencies
@@ -75,7 +74,7 @@ Get started by
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
 Please make sure to disable Vetur when using this project in vs code, because with vetur installed, you will face these issues:
-- Duplicate code intellisense provider, so for example when trying to use intellisense to jump to definition, it will not jump if there is more than 1 definition found, because both Volar and Vetur can find the definition.
+- Duplicated code intellisense provider, so for example when trying to use intellisense to jump to definition, it will not jump if there is more than 1 definition found, because both Volar and Vetur can find the definition.
 - Vetur will error out when using composition API with a single `<script setup>` block, because it will not be able to understand the setup block and thus think that there is no default export when there is actually.
 
 

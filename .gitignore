@@ -31,6 +31,3 @@ dist/
 
 # TypeScript incremental build cache file
 tsconfig.tsbuildinfo
-
-# Ignore github pages folder and force add it only when deploying to github pages
-docs/

@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => {
     // Ref: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#next-steps
     // base: process.env.NODE_ENV === "production" ? "/your-github-repo-name/" : "/",
 
+    // Alternatively, you can pass a value in with `vite build --mode production` instead of relying on env vars.
+    // base: mode === "whatever-command-you-want" ? "/your-github-repo-name/" : "/",
+
     // You can delete this or just leave it alone as this is only for demo purposes.
     base: mode === "github-pages" ? "/vue3-bulma-template/" : "/",
 
