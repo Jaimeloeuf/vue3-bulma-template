@@ -6,7 +6,12 @@ This TypeScript template helps you get started with developing Vue 3 application
 Get started by
 1. Either (in order of preference)
     1. Clicking the `use this template` button on github
-    1. Download this repo as a ZIP file (so it will not have any `.git` config) and extracting it
+    1. Download this repo as a ZIP file using the github button (so it will not have any `.git` config) and extracting it
+    <!-- 1. Download this repo locally and unzip it with
+        - `git archive --verbose --format zip --remote=https://github.com/Enkel-Digital/vue3-bulma-template.git --output "vue3-bulma-template.zip" master -0`
+            - This will give you an uncompressed archive (-0 is the flag for uncompressed)
+        - Then unzip it depending on your platform, e.g. using windows' file explorer, [with powershell](https://stackoverflow.com/a/27771099) or [on macOS and linux bash like shells](https://askubuntu.com/a/520555).
+        - *This does not work with Github now -->
     1. Clone this repo locally and **manually deleting the `.git` folder**
         - Please note that you **MUST** delete the `.git` folder to use git yourself!!
     1. Forking this repo
