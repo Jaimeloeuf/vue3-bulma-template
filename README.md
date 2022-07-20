@@ -44,7 +44,7 @@ Get started by
 1. Start creating your Vue SFCs with the 2 provided templates using either the [Option API](./src/components/TemplateOptions.vue) or the [Composition API](./src/components/TemplateComposition.vue)
 1. Create a [.env](./.env) file in your root directory to set environment variables
     - See <https://vitejs.dev/guide/env-and-mode.html> for reference on how to use `.env` files
-    - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.js](./src/main.js)
+    - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.ts](./src/main.ts)
 1. Update the [favicon](./public/favicon.ico)
 1. If you are **using github pages** to deploy and host your application, you need to update your [vite config file](./vite.config.ts)
     1. You might need to set the production base URL path as your repo's name if your repo is not the default account/organisation repo.
