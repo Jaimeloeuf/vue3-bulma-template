@@ -36,16 +36,20 @@ Get started by
 
 
 ## Setup steps
-1. Consider using the recommended development environment by following [this](#recommended-ide-setup)
+### Required
 1. Update [package.json](./package.json)
     - Set the package name and version
     - Remember to run `npm i` after update to get npm to update your `package-lock.json` file
 1. Update the title of your application in [index.html](./index.html)
+1. Update the [favicon](./public/favicon.ico)
 1. Start creating your Vue SFCs with the 2 provided templates using either the [Option API](./src/components/TemplateOptions.vue) or the [Composition API](./src/components/TemplateComposition.vue)
+1. Set the base URL of the API library in [main.ts](./src/main.ts) for your own API service if any
+
+### Optional
+1. Consider using the recommended development environment by following [this](#recommended-ide-setup)
 1. Create a [.env](./.env) file in your root directory to set environment variables
     - See <https://vitejs.dev/guide/env-and-mode.html> for reference on how to use `.env` files
     - Set `VITE_API_URL` to use as the API default base URL if you are not using the ternary method in [main.ts](./src/main.ts)
-1. Update the [favicon](./public/favicon.ico)
 1. If you are **using github pages** to deploy and host your application, you need to update your [vite config file](./vite.config.ts)
     1. You might need to set the production base URL path as your repo's name if your repo is not the default account/organisation repo.
         - See section on [github-pages deployment](#github-pages) for more details.
@@ -53,6 +57,7 @@ Get started by
 1. If you are **not using github pages** to deploy and host your application, you can delete the [public/.nojekyll](./public/.nojekyll) file so that it is not copied into your build output.
     - The file is there to make github pages deployments work, it is not required and can be left alone for almost all other deployment and hosting strategies.
     - See section on [github-pages deployment](#github-pages) for more details.
+1. By default, the Bulma CSS library dependency will be bundled on build, if you prefer using a CDN to load Bulma instead, follow the instructions in [main.ts](./src/main.ts) and [index.html](./index.html) to modify how Bulma is loaded.
 
 
 ## Dependencies
