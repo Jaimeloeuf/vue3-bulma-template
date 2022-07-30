@@ -19,12 +19,15 @@
       "@/*": ["./src/*"]
 
       // This would allow you to write import "@/some-file", and get all of the correct typing locally.
-    },
+    }
 
-    // Allow imports of .json files directly in code and enable type checking
-    "resolveJsonModule": true,
+    /*
+      These options below are inherited from the base VueJS tsconfig.json
+      Commented out here for users to know what are some of the values set.
+    */
 
-    "strict": true,
-    "noImplicitThis": true
+    // "strict": true,
+    // "noImplicitThis": true,
+    // "resolveJsonModule": true, // Allow direct import of .json files and enable type checking
   }
 }
