@@ -27,5 +27,8 @@ export const useStore = defineStore("main", {
   // Persists this store's state in localStorage to reuse across sessions
   // Note that this is not efficient for large to extremely large state trees,
   // as on every state change, the entire tree is serialized and saved.
+  //
+  // https://github.com/prazdevs/pinia-plugin-persistedstate#-usage
+  // This can be customised to use other storage implementations like sessionStorage
   persist: true,
 });
