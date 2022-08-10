@@ -18,7 +18,15 @@ module.exports = {
     "vue/setup-compiler-macros": true,
   },
 
+  plugins: [
+    // https://github.com/import-js/eslint-plugin-import
+    "import",
+  ],
+
   extends: [
+    "plugin:import/typescript",
+
+    // Vue specific extensions
     "plugin:vue/vue3-essential",
     "plugin:vue/vue3-strongly-recommended",
     "plugin:vue/vue3-recommended",
@@ -31,6 +39,20 @@ module.exports = {
   ],
 
   rules: {
+    // Prevent the use of `var`, prefer const and let instead
+    // https://eslint.org/docs/latest/rules/no-var
+    "no-var": "error",
+
+    // Prevent a module from importing itself
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-self-import.md
+    "import/no-self-import": "error",
+
+    // Prevent the use of default exports, only turn this on if using Options API exclusively as composition API will still be a default export
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/default-import.md
+    // "import/no-default-export": "error",
+
+    /* Rules below are vue specific rules */
+
     // This is a rule from "plugin:vue/vue3-essential"
     // This rule prevents use of single word component names to prevent
     // any potential name collisions with HTML elements in the future.
