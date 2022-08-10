@@ -61,18 +61,18 @@ Get started by
 
 
 ## Dependencies
-- `TypeScript` as the language
-- `vue3`
-- `vue-router`
-- `pinia` for state management
-- `pinia-plugin-persistedstate` to persist state across sessions in localStorage
-- `bulma` CSS library as the main styling dependency
-- `simpler-fetch` as the API library
+- [`TypeScript`](https://www.npmjs.com/package/typescript) as the language
+- [`vue3`](https://www.npmjs.com/package/vue)
+- [`vue-router`](https://www.npmjs.com/package/vue-router)
+- [`pinia`](https://www.npmjs.com/package/pinia) for state management
+- [`pinia-plugin-persistedstate`](https://www.npmjs.com/package/pinia-plugin-persistedstate) to persist state across sessions in localStorage
+- [`bulma`](https://www.npmjs.com/package/bulma) CSS library as the main styling dependency
+- [`simpler-fetch`](https://www.npmjs.com/package/simpler-fetch) as the API library
 
 
 ## DevDependencies
-- `prettier`
-- `eslint`, this template is configured to follow the [Vue.js style guide](https://vuejs.org/style-guide/)
+- [`prettier`](https://npmjs.com/package/prettier)
+- [`eslint`](https://npmjs.com/package/eslint), this template is configured to follow the [Vue.js style guide](https://vuejs.org/style-guide/)
 - [`gh-pages`](https://npmjs.com/package/gh-pages) is ran using [npx](https://www.npmjs.com/package/npx) when deploying to github pages, and so it will only be temporarily installed if deploying to github pages.
 
 
