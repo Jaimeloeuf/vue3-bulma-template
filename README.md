@@ -73,7 +73,7 @@ Get started by
 ## DevDependencies
 - `prettier`
 - `eslint`, this template is configured to follow the [Vue.js style guide](https://vuejs.org/style-guide/)
-- `simple-github-pages-deploy` is ran using [npx](https://www.npmjs.com/package/npx) when deploying to github pages, and so it will only be temporarily installed if using github pages.
+- [`gh-pages`](https://npmjs.com/package/gh-pages) is ran using [npx](https://www.npmjs.com/package/npx) when deploying to github pages, and so it will only be temporarily installed if deploying to github pages.
 
 
 ## Technical details and notes
