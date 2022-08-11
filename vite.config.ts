@@ -1,11 +1,28 @@
 import { defineConfig } from "vite";
+
 import vue from "@vitejs/plugin-vue";
+import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/config/#conditional-config
 export default defineConfig(({ mode }) => {
   return {
-    plugins: [vue()],
+    plugins: [
+      vue(),
+
+      // Plugin to enable PWA usage
+      VitePWA({
+        // Allow PWA to be tested in development mode
+        devOptions: { enabled: true },
+
+        registerType: "autoUpdate",
+
+        // Values in the generated manifest file
+        manifest: {
+          name: "vue3-bulma-template",
+        },
+      }),
+    ],
 
     // When deploying to Github pages, the base URL will be your repo's name,
     // Thus the production base URL must be changed here for it to work when deployed.

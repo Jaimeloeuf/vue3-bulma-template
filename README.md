@@ -78,6 +78,7 @@ Get started by
 
 ## Technical details and notes
 - vue router is configured to use `# hashed based routing` rather than history mode
+- Basic PWA support is enabled by default, see [vite config](./vite.config.ts) for more details
 
 
 ## Recommended IDE Setup
