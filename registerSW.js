@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/vue3-bulma-template/sw.js', { scope: '/vue3-bulma-template/' })})}
