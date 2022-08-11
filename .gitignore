@@ -19,6 +19,7 @@ node_modules
 
 # App build output
 dist/
+dev-dist/
 
 # Firebase cache
 .firebase/
