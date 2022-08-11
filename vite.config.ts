@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 
 import vue from "@vitejs/plugin-vue";
 import { VitePWA } from "vite-plugin-pwa";
+import basicSSL from "@vitejs/plugin-basic-ssl";
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/config/#conditional-config
@@ -22,6 +23,11 @@ export default defineConfig(({ mode }) => {
           name: "vue3-bulma-template",
         },
       }),
+
+      // Enable https by default as ios requires https connections to give camera access
+      // https://vitejs.dev/config/server-options.html#server-https
+      // https://vitejs.dev/guide/migration.html#automatic-https-certificate-generation
+      basicSSL(),
     ],
 
     // When deploying to Github pages, the base URL will be your repo's name,

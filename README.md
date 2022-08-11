@@ -79,6 +79,7 @@ Get started by
 ## Technical details and notes
 - vue router is configured to use `# hashed based routing` rather than history mode
 - Basic PWA support is enabled by default, see [vite config](./vite.config.ts) for more details
+- In development mode, vite is configured to use HTTPS by default as many use cases such as getting camera access require application to be loaded over HTTPS.
 
 
 ## Recommended IDE Setup
