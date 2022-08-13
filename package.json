@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "bulma": "^0.9.4",
-    "pinia": "^2.0.17",
+    "pinia": "^2.0.18",
     "pinia-plugin-persistedstate": "^2.1.1",
     "simpler-fetch": "^7.0.2",
     "vue": "^3.2.37",
@@ -22,9 +22,9 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
-    "@types/node": "^18.6.5",
+    "@types/node": "^18.7.3",
     "@vitejs/plugin-basic-ssl": "^0.1.1",
-    "@vitejs/plugin-vue": "^3.0.1",
+    "@vitejs/plugin-vue": "^3.0.3",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/tsconfig": "^0.1.3",
@@ -33,8 +33,8 @@
     "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
-    "vite": "^3.0.5",
+    "vite": "^3.0.7",
     "vite-plugin-pwa": "^0.12.3",
-    "vue-tsc": "^0.40.0"
+    "vue-tsc": "^0.40.1"
   }
 }
