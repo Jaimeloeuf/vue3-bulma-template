@@ -5,7 +5,7 @@
 // Location of this file is defined in tsconfig.json
 
 interface ImportMetaEnv {
-  // Allows user to set VITE_API_URL in a .env file and use `oof._baseUrl = import.meta.env.VITE_API_URL;` in main.ts
+  // Allows user to set VITE_API_URL in a .env file and use `oof.setBaseUrl(import.meta.env.VITE_API_URL);` in main.ts
   readonly VITE_API_URL: string;
 
   // Add more env variables as needed...

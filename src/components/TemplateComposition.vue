@@ -21,12 +21,13 @@ defineProps({});
 
 // Method to call API for data and set data variable with response
 // async function getData() {
-//   const res = await oof
+//   const { res, err } = await oof
 //     .GET("https://jsonplaceholder.typicode.com/todos/1")
-//     .runJSON()
-//     .catch((e) => alert(`Error: ${e.message}`));
+//     .once()
+//     .runJSON();
 
-//   if (!res?.ok) return alert("Failed to get data");
+//   if (err) return alert(`API call failed: ${err}`);
+//   if (!res.ok) return alert(`Failed to get data: ${res}`);
 
 //   value.value = "API Call works!";
 // }

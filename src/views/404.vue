@@ -8,13 +8,16 @@ async function report() {
   // Sample error reporting logic
   // const { oof } = await import("simpler-fetch");
 
-  // const res = await oof
+  // const { res, err } = await oof
   //   .POST("/error")
-  //   .data({ error: "404 route", data: loc })
-  //   .runJSON()
-  //   .catch((e) => alert(`Error: ${e.message}`));
+  //   .once()
+  //   .bodyJSON({ error: "404 route", data: loc })
+  //   .runJSON();
 
-  // if (res.ok) alert(`Error reported, case number: ${res.id}`);
+  // if (err) return alert(`API call failed: ${err}`);
+  // if (!res.ok) return alert(`Failed to get data: ${res}`);
+
+  // alert(`Error reported, case number: ${res.id}`);
 }
 </script>
 

@@ -16,7 +16,7 @@
     "bulma": "^0.9.4",
     "pinia": "^2.0.18",
     "pinia-plugin-persistedstate": "^2.1.1",
-    "simpler-fetch": "^7.0.2",
+    "simpler-fetch": "^8.0.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },
