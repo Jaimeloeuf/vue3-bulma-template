@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { ref } from "vue";
+const showMobileMenu = ref<boolean>(false);
+
+// @todo Add menu items as needed
+const menuItems = [
+  // {
+  //   name: "About",
+  //   link: { name: "about" },
+  // },
+];
+</script>
+
 <template>
   <!-- See class applied to the html tag in index.html for sticky navbar -->
   <nav id="nav" class="navbar is-fixed-top is-white" role="navigation">
@@ -35,7 +48,7 @@
       class="navbar-menu has-text-right"
       :class="{ 'is-active': showMobileMenu }"
     >
-      <div class="navbar-end">
+      <div class="navbar-end" @click="showMobileMenu = false">
         <router-link
           v-for="(menuItem, i) in menuItems"
           :key="i"
@@ -58,22 +71,6 @@
 
   <br />
 </template>
-
-<script lang="ts">
-export default {
-  name: "Navbar",
-  data() {
-    return {
-      showMobileMenu: false,
-
-      // @todo Add menu items as needed
-      menuItems: [
-        // { name: "About", link: { name: "about" } },
-      ],
-    };
-  },
-};
-</script>
 
 <style scoped>
 /* Gives the nav bar a white fill background and a super thin and light bottom underline to give visual seperation from the content */
