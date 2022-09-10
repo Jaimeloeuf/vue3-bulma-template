@@ -9,23 +9,10 @@
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
 
   "compilerOptions": {
-    "baseUrl": ".", // this must be specified if "paths" is specified.
-
-    // Note that this is only for module resolution to do type checking with tsc
-    // anything that requires building is, the mod resolution is still done in vite.config.ts
-    // any path rewrites should be defined there instead
-    "paths": {
-      // this mapping is relative to "baseUrl"
-      "@/*": ["./src/*"]
-
-      // This would allow you to write import "@/some-file", and get all of the correct typing locally.
-    }
-
     /*
       These options below are inherited from the base VueJS tsconfig.json
       Commented out here for users to know what are some of the values set.
     */
-
     // "strict": true,
     // "noImplicitThis": true,
     // "resolveJsonModule": true, // Allow direct import of .json files and enable type checking

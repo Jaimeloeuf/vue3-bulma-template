@@ -40,14 +40,5 @@ export default defineConfig(({ mode }) => {
 
     // You can delete this or just leave it alone as this is only for demo purposes.
     base: mode === "github-pages" ? "/vue3-bulma-template/" : "/",
-
-    // Uncomment this to allow the use of the `@` symbol as alias for /src
-    // @todo Move import to the top if this is used
-    // import { fileURLToPath, URL } from "url";
-    // resolve: {
-    //   alias: {
-    //     "@": fileURLToPath(new URL("./src", import.meta.url)),
-    //   },
-    // },
   };
 });
