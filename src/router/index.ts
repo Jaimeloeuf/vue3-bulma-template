@@ -30,6 +30,12 @@ const router = createRouter({
       component: Home,
     },
 
+    {
+      path: "/about",
+      name: "about",
+      component: () => import("../views/About.vue"),
+    },
+
     /* Public only routes */
     // {
     //   path: "/login",

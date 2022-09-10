@@ -4,10 +4,10 @@ const showMobileMenu = ref<boolean>(false);
 
 // @todo Add menu items as needed
 const menuItems = [
-  // {
-  //   name: "About",
-  //   link: { name: "about" },
-  // },
+  {
+    name: "About",
+    link: { name: "about" },
+  },
 ];
 </script>
 
