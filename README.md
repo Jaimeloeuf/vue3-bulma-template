@@ -23,6 +23,7 @@ Get started by
     - `npm i`
 - Run in development mode
     - `npm run serve`
+        - *See the site on https://localhost:8080 instead of just http!!*
 - Lint source files with ESLint
     - `npm run lint`
 - Preview production build locally
@@ -93,12 +94,14 @@ Please make sure to disable Vetur when using this project in vs code, because wi
 ## Type Support for `.vue` Imports in TS
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by following these steps:
 
 1. Disable the built-in TypeScript Extension
     1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
     2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+Reference: <https://vuejs.org/guide/typescript/overview.html#takeover-mode>
 
 
 ## Deployment

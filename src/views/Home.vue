@@ -43,7 +43,7 @@
     <component :is="'Demo' + API_type" :timeAsProp="timeValue">
       <!-- Example on how to use a named slot -->
       <template #title>
-        <p class="title">Vue3 Bulma Template ({{ API_type }})</p>
+        <p class="title mx-3">Vue3 Bulma Template ({{ API_type }})</p>
       </template>
     </component>
 
