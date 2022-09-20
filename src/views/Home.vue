@@ -40,8 +40,6 @@
 
   <!-- Alternative using simple if/else vue directives instead of dynamic components -->
   <!-- 
-    <!--
-  <!-- 
   <div v-if="API_type === 'options'">
     <DemoOptions :timeAsProp="timeValue">
       <template #title>

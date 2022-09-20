@@ -5,6 +5,7 @@
     "serve": "npx vite --port 8080",
     "serve:localnetwork": "npx vite --port 8080 --host",
     "lint": "npx eslint ./src/ --ext .vue,.js,.ts,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
     "preview": "npx vite preview --port 8080",
     "typecheck": "npx vue-tsc --noEmit",
     "build": "npx vite build",
