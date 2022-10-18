@@ -22,20 +22,19 @@ async function report() {
 </script>
 
 <template>
-  <div class="columns is-multiline mx-6 my-6">
+  <div class="columns is-multiline is-mobile mx-4 my-4">
     <div class="column is-full">
       <p class="title is-3">Page Not Found</p>
-      <br />
+      <p class="subtitle">The page you tried to look for does not exists!</p>
+    </div>
 
-      <p class="subtitle">"{{ loc }}"</p>
-
+    <div class="column is-full">
       <div class="columns is-vcentered">
         <div class="column">
-          <p class="subtitle">
-            The page you tried to look for does not exists!
-          </p>
+          <p class="subtitle">"{{ loc }}"</p>
         </div>
 
+        <!-- Alternative can be a form that you can prefill -->
         <div class="column is-narrow">
           <button
             class="button is-light is-warning is-fullwidth"
@@ -51,7 +50,7 @@ async function report() {
       <hr />
     </div>
 
-    <div class="column is-half">
+    <div class="column is-narrow">
       <button
         class="button is-light is-warning is-fullwidth"
         @click="$router.back"
@@ -60,7 +59,7 @@ async function report() {
       </button>
     </div>
 
-    <div class="column is-half">
+    <div class="column">
       <router-link
         class="button is-light is-success is-fullwidth"
         :to="{ name: 'home' }"
