@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import DemoComponent from "../components/DemoComposition.vue";
+import DemoComponent from "../components/DemoComponentWithCompositionAPI.vue";
 
 const timeValue = ref<number>(Date.now());
 
