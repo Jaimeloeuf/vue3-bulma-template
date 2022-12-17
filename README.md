@@ -1,20 +1,16 @@
 # vue3-bulma-template
-A simple to use frontend template based on [`vue3`](https://v3.vuejs.org/guide/introduction.html) and [`bulma`](https://bulma.io/).
+A simple to use TypeScript frontend template based on [`vue3`](https://v3.vuejs.org/guide/introduction.html) ([Composition API](./src/components/TemplateComposition.vue)) and [`bulma`](https://bulma.io/).
 
-This TypeScript template helps you get started with developing Vue 3 applications quickly and easily, and is designed for building applications that is mobile friendly with persisted state across sessions.
+This TypeScript template helps you get started with developing Vue 3 applications quickly and easily, and is designed for building mobile friendly web applications with persistent state across sessions.
 
 Get started by
-1. Either (in order of preference)
-    1. Clicking the `use this template` button on github
+1. Downloading the template with one of these options (sorted by ease of setting up)
+    1. Clicking the `use this template` button on github, and cloning it locally
     1. Download this repo as a ZIP file using the github button (so it will not have any `.git` config) and extracting it
-    <!-- 1. Download this repo locally and unzip it with
-        - `git archive --verbose --format zip --remote=https://github.com/Enkel-Digital/vue3-bulma-template.git --output "vue3-bulma-template.zip" master -0`
-            - This will give you an uncompressed archive (-0 is the flag for uncompressed)
-        - Then unzip it depending on your platform, e.g. using windows' file explorer, [with powershell](https://stackoverflow.com/a/27771099) or [on macOS and linux bash like shells](https://askubuntu.com/a/520555).
-        - *This does not work with Github now -->
     1. Clone this repo locally and **manually deleting the `.git` folder**
         - Please note that you **MUST** delete the `.git` folder to use git yourself!!
     1. Forking this repo
+        - Please note that you **MUST** create a new remote origin for this to work
 1. Setup and customize this template by [following the steps below](#setup-steps)
 
 
@@ -40,10 +36,10 @@ Get started by
 ### Required
 1. Update [package.json](./package.json)
     - Set the package name and version
-    - Remember to run `npm i` after update to get npm to update your `package-lock.json` file
+    - Remember to run `npm i` after setting the package name and version to get npm to update your `package-lock.json` file's name and version too
 1. Update the title of your application in [index.html](./index.html)
 1. Update the [favicon](./public/favicon.ico)
-1. Start creating your Vue SFCs with the 2 provided templates using either the [Option API](./src/components/TemplateOptions.vue) or the [Composition API](./src/components/TemplateComposition.vue)
+1. Start creating your [Vue SFCs](https://vuejs.org/guide/scaling-up/sfc.html) in [views/](./src/views/) and [components/](./src/components/). You can reference the provided examples in the folders for how to create SFCs using the [Composition API](./src/components/TemplateComposition.vue)
 1. Set the base URL of the API library in [main.ts](./src/main.ts) for your own API service if any
 
 ### Optional
@@ -78,6 +74,7 @@ Get started by
 
 
 ## Technical details and notes
+- Although [Option API](./src/components/TemplateOptions.vue) can still be used, it is not recommended, as the only advantage to it compared to Composition API is that it makes migration from vue2 easier. Since this template is designed to make it easier to start new projects, there is no point in supporting the older API whose TS support is not as good too.
 - vue router is configured to use `# hashed based routing` rather than history mode
 - Basic PWA support is enabled by default, see [vite config](./vite.config.ts) for more details
 - In development mode, vite is configured to use HTTPS by default as many use cases such as getting camera access require application to be loaded over HTTPS.
