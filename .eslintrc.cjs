@@ -47,7 +47,12 @@ module.exports = {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-self-import.md
     "import/no-self-import": "error",
 
-    // Prevent the use of default exports, only turn this on if using Options API exclusively as composition API will still be a default export
+    // Prevent the use of default exports, and use named exports only.
+    // However Composition API will always export the component as a default export, therefore
+    // in places of import such as main.ts or router config, there is no choice but to use
+    // default imports, which is why this rule is not enabled, but can be enabled to temporarily
+    // check for any use of default exports in other places.
+    // https://listed.to/@JJ/37419/named-exports-are-better-than-default-ones-mostly
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/default-import.md
     // "import/no-default-export": "error",
 

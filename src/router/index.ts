@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import type { AuthTypes } from "./AuthType";
-import AuthType from "./AuthType";
+import { AuthType } from "./AuthType";
 
 import Home from "../views/Home.vue";
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHashHistory(),
 
   // Alternatively, import 'createWebHistory' to use history mode instead
@@ -80,5 +80,3 @@ router.beforeEach(function (to, _from, next) {
   // Else, just continue navigation as per user request.
   else next();
 });
-
-export default router;

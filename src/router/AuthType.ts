@@ -18,7 +18,7 @@ export type AuthTypes = Public | Public_only | Private;
  * - public_only: Only accessible if user is not logged in. Example would be the login route.
  * - private: Accessible to users after authentication.
  */
-export default Object.freeze({
+export const AuthType = Object.freeze({
   public: 1,
   public_only: 2,
   private: 3,
