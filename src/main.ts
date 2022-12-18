@@ -21,11 +21,12 @@ oof.setBaseURL(
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
-import { router } from "./router/index";
 import App from "./App.vue";
+
+import { getRouter } from "./router";
 
 // Create new vue app
 createApp(App)
-  .use(router)
+  .use(getRouter())
   .use(createPinia().use(piniaPluginPersistedstate))
   .mount("#app");
