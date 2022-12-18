@@ -1,8 +1,23 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHashHistory,
+  type RouteRecordRaw,
+} from "vue-router";
 
 import { AuthType, type AuthTypes } from "./AuthType";
 
-import Home from "../views/Home.vue";
+import { PrivateRoutes } from "./PrivateRoutes";
+import { PublicRoutes } from "./PublicRoutes";
+
+/**
+ * RouteObject enforces the type rule that if meta property is specified,
+ * it must be an object with an explicit AuthRequirement specified.
+ * The meta property is optional because a route like 404 catch all does
+ * not need to have any AuthRequirements specified.
+ */
+type RouteObject = RouteRecordRaw & {
+  meta?: { AuthRequirements: AuthTypes };
+};
 
 export const router = createRouter({
   history: createWebHashHistory(),
@@ -23,42 +38,31 @@ export const router = createRouter({
    * which is lazy-loaded when the route is visited.
    */
   routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home,
-    },
+    ...PublicRoutes,
+    ...PrivateRoutes,
 
-    {
-      path: "/about",
-      name: "about",
-      component: () => import("../views/About.vue"),
-    },
-
-    /* Public only routes */
-    // {
-    //   path: "/login",
-    //   name: "login",
-    //   component: () => import("../views/Login.vue"),
-    // },
-
-    /* Public routes */
+    /* 404 Catch all route handler */
     {
       path: "/:pathMatch(.*)*",
       name: "404",
       component: () => import("../views/404.vue"),
     },
-  ],
+  ] satisfies Array<RouteObject>,
 });
 
+/**
+ * Function to create an object to easily check the required auth requirement of a route object.
+ */
 const requiredAuth = (AuthRequirements?: AuthTypes) => ({
   public: AuthRequirements === AuthType.Public,
   public_only: AuthRequirements === AuthType.PublicOnly,
   private: AuthRequirements === AuthType.Private,
 });
 
-// Attach a Router Gaurd Middleware function to run when navigation is made before the actual navigation.
-// The guard checks if user's current auth status matches required auth status for the route being accessed.
+/**
+ * Attach a Router Gaurd Middleware function to run when navigation is made before the actual navigation.
+ * The guard checks if user's current auth status matches required auth status for the route being accessed.
+ */
 router.beforeEach(function (to, _from, next) {
   // @todo Get the user's auth status from your auth service/lib
   const isAuthenticated = true;
