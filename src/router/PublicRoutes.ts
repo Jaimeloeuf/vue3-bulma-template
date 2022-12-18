@@ -2,7 +2,28 @@ import type { RouteRecordRaw } from "vue-router";
 import type { Public, PublicOnly } from "./AuthType";
 import { AuthType } from "./AuthType";
 
-import Home from "../views/Home.vue";
+/*
+  Define all Private Route Objects here, before adding them to the
+  type checking array defined at the bottom of this module.
+
+  `as const` needed for TS to use strict types, and name property's
+  string value as the property's string literal type, so that it
+  can be properly inferred in `RouteNames` module.
+*/
+
+export const HomeRoute = {
+  path: "/",
+  name: "home",
+  component: () => import("../views/Home.vue"),
+  meta: { AuthRequirements: AuthType.Public },
+} as const;
+
+export const AboutRoute = {
+  path: "/about",
+  name: "about",
+  component: () => import("../views/About.vue"),
+  meta: { AuthRequirements: AuthType.Public },
+} as const;
 
 /**
  * A public route requires AuthRequirements to be specified as Public or PublicOnly
@@ -12,36 +33,22 @@ type PublicRoute = RouteRecordRaw & {
 };
 
 /**
- * @notice
- * Routes uses lazily loaded components with route level code-splitting
- * this generates a separate chunk (about.[hash].js) for this route
- * which is lazy-loaded when the route is visited.
+ * This anonymous unbinded array is used internally only for typechecking purposes.
+ * Uses the `satisfies` operator to typecheck that the AuthRequirements are valid.
+ *
+ * Add all route objects defined in this file to this array for typechecking to
+ * ensure that the route objects satisfies the `PublicRoute` type constrain.
+ *
+ * The alternative of this is to chain the satisfies operator on every single Route
+ * Object definition, but that is more tedious and error prone as they are all done
+ * individually compared to this array type checking method which makes it readable.
+ *
+ * Also the RouteObjects cannot simply be annotated with the `PublicRoute` type directly
+ * at the point of creation, because that will widen the RouteObject type to be that of
+ * `PublicRoute` and ignore the `as const`, which is critical for treating the `name`
+ * field as a string literal type for `RouteNames` type to be properly inferred.
+ *
+ * Since this array cant be referenced and used anywhere it will be tree shaked away,
+ * therefore there is no need to worry about the runtime cost of this array.
  */
-export const PublicRoutes: Readonly<Array<PublicRoute>> = [
-  /* Public only routes */
-  // {
-  //   path: "/login",
-  //   name: "login",
-  //   component: () => import("../views/Login.vue"),
-  // },
-
-  {
-    path: "/",
-    name: "home",
-    component: Home,
-    meta: { AuthRequirements: AuthType.Public },
-  },
-
-  {
-    path: "/about",
-    name: "about",
-    component: () => import("../views/About.vue"),
-    meta: { AuthRequirements: AuthType.Public },
-  },
-
-  // `satisfies` operator to do typechecking to ensure that the AuthRequirements is valid.
-  // `as const` to narrow the type and make it as strict as possible.
-  //
-  // @todo However the chaining is not working for now, for the current TS/Prettier/Eslint version so not used yet.
-  // ] as const satisfies Array<PublicRoute>;
-] satisfies Array<PublicRoute>;
+[HomeRoute, AboutRoute] satisfies Array<PublicRoute>;
