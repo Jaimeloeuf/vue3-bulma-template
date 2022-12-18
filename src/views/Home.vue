@@ -2,6 +2,7 @@
 import { ref } from "vue";
 
 import DemoComponent from "../components/DemoComponentWithCompositionAPI.vue";
+import Version from "../components/Version.vue";
 
 const timeValue = ref<number>(Date.now());
 
@@ -20,5 +21,7 @@ setInterval(() => (timeValue.value = Date.now()), 1000);
         </p>
       </template>
     </DemoComponent>
+
+    <Version />
   </div>
 </template>

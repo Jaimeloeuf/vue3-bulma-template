@@ -70,5 +70,13 @@ module.exports = {
     // This is disabled because by using this rule, there is a mismatch between the prop
     // name defined in the child component and the prop name used in the parent component.
     "vue/attribute-hyphenation": ["error", "never"],
+
+    // Add rule to define these global constants that are set using the `define` prop in vite.config.ts
+    // https://eslint.org/docs/latest/user-guide/configuring/language-options#using-configuration-files-1
+    globals: {
+      buildTime: "readonly",
+      commitHash: "readonly",
+      gitBranch: "readonly",
+    },
   },
 };
