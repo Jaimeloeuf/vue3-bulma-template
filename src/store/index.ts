@@ -1,17 +1,24 @@
 import { defineStore } from "pinia";
 
-// Need to define type of State object externally, to define optional properties
+/**
+ * Type of the pinia store's State.
+ * Defined externally to make it more readable.
+ */
 interface State {
   name?: string;
   random: number;
 }
 
-// useStore could be anything like useUser, useCart
-// the first argument is a unique id of the store across your application
+/**
+ * Main pinia store of the application.
+ *
+ * `useStore` could be anything like `useUser`, `useCart`, where the
+ * first argument is a unique id of the store across your application.
+ */
 export const useStore = defineStore("main", {
-  // arrow function recommended for full type inference
+  // Arrow function used for full type inference, so that all the properties
+  // can have their type inferred automatically if no State type is defined
   state: (): State => ({
-    // all these properties will have their type inferred automatically
     name: "User",
     random: 0,
   }),
