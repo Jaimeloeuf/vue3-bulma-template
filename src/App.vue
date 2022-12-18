@@ -1,45 +1,59 @@
 <script setup lang="ts">
 import Navbar from "./components/Navbar.vue";
+import LoaderUI from "./components/LoaderUI.vue";
 </script>
 
 <template>
-  <Navbar />
+  <RouterView v-slot="{ Component }">
+    <!--
+      A timeout MUST BE specified for the fallback content to be shown by default.
+      Arbitrary timeout of 10 milliseconds to account for super quick
+      dynamic route loading or flush behaviour to prevent flickering.
 
-  <!-- Center router view element horizontally -->
-  <div class="container">
-    <router-view />
-  </div>
+      References:
+      https://github.com/vuejs/router/issues/560
+      https://github.com/vuejs/core/issues/2142
+    -->
+    <Suspense :timeout="10">
+      <!--
+        Main dynamic content from router-view.
 
-  <!--
-    Alternative using fragment:
+        Suspense slots expect a single root node and cannot support fragments in
+        components, therefore an extra `div` is used to wrap it to only have a
+        single element passed to Suspense's default slot.
 
-    <router-view class="container" />
+        A template tag cannot be used instead as it is compiled away and will just
+        end up exposing the fragment to Suspense again. Therefore a div has to be
+        used. A `template` tag would also require the #default slot name to be
+        specified since the template tag is part of the slot API and cannot be used
+        directly without any slot name since that will just mean that the default
+        slot becomes empty.
 
-    By passing this attribute to child components, the child components
-    cannot be a fragment (return multiple root nodes) as vue js will
-    not know which node to bind the fallthrough attribute to.
+        References:
+        https://github.com/vuejs/core/issues/2143
+        https://github.com/vuejs/core/issues/3795
+        https://v2.vuejs.org/v2/guide/conditional.html#Conditional-Groups-with-v-if-on-lt-template-gt
+        https://stackoverflow.com/questions/10704575/is-there-any-html-element-without-any-style
+        https://caniuse.com/css-display-contents
+      -->
+      <div>
+        <Navbar />
 
-    Thus all elements of the child view is usually wrapped in a div even
-    though vue3 allows for multiple elements per template without a root
-    element because vue will not know which sub element to apply that class
-    onto, therefore, by grouping all under a div tag, the class applied
-    on router-view element will be inherited on the wrapper div.
+        <!-- Center router view element horizontally -->
+        <div class="container">
+          <component :is="Component" />
+        </div>
+      </div>
 
-    See reference:
-    https://v3-migration.vuejs.org/new/fragments.html#overview
-    https://vuejs.org/guide/components/attrs.html#fallthrough-attributes
-  -->
+      <!-- Loading UI shown when router component with async setup script is still not resolved -->
+      <template #fallback>
+        <LoaderUI />
+      </template>
+    </Suspense>
+  </RouterView>
 </template>
 
 <style>
-/* Unscoped styles that applies to the entire application */
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /*
   Color input pink if it is invalid --> e.g. when telephone number does not match the specified pattern
   Will only activate if the placeholder is not currently being shown, meaning will not show before user type anything

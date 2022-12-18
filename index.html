@@ -19,6 +19,37 @@
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css"> -->
 
   <link rel="icon" href="/favicon.ico" />
+
+  <!-- Global top level styles with inline style tag -->
+  <style>
+    html {
+      /* @todo Test this out as this is not supported on all platforms */
+      scroll-behavior: smooth;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    ::-webkit-scrollbar {
+      display: none;
+      /* remove scrollbar space */
+      width: 0px;
+      /* optional: just make scrollbar invisible */
+      background: transparent;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    body {
+      /* IE and Edge */
+      -ms-overflow-style: none;
+      /* Firefox */
+      scrollbar-width: none;
+    }
+
+    #app {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
 </head>
 
 <body>
