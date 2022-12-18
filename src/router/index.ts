@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import type { AuthTypes } from "./AuthType";
-import { AuthType } from "./AuthType";
+import { AuthType, type AuthTypes } from "./AuthType";
 
 import Home from "../views/Home.vue";
 
@@ -52,10 +51,10 @@ export const router = createRouter({
   ],
 });
 
-const requiredAuth = (AuthRequirements: AuthTypes) => ({
-  public: AuthRequirements === AuthType.public,
-  public_only: AuthRequirements === AuthType.public_only,
-  private: AuthRequirements === AuthType.private,
+const requiredAuth = (AuthRequirements?: AuthTypes) => ({
+  public: AuthRequirements === AuthType.Public,
+  public_only: AuthRequirements === AuthType.PublicOnly,
+  private: AuthRequirements === AuthType.Private,
 });
 
 // Attach a Router Gaurd Middleware function to run when navigation is made before the actual navigation.
@@ -67,7 +66,7 @@ router.beforeEach(function (to, _from, next) {
   // Get AuthStatus required for accessing the route.
   // Get auth requirements from first route object that matches with route navigated to
   const AuthType_required_is = requiredAuth(
-    to.matched[0].meta.AuthRequirements
+    to.matched[0]?.meta.AuthRequirements as AuthTypes | undefined
   );
 
   /* Call the next middleware based on authentication status */

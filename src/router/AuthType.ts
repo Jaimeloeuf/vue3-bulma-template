@@ -4,9 +4,9 @@
  */
 
 export type Public = 1;
-export type Public_only = 2;
+export type PublicOnly = 2;
 export type Private = 3;
-export type AuthTypes = Public | Public_only | Private;
+export type AuthTypes = Public | PublicOnly | Private;
 
 /**
  * Define an enum of all authentication requirements types possible for the routes.
@@ -15,11 +15,11 @@ export type AuthTypes = Public | Public_only | Private;
  *
  * Auth types:
  * - public: All User can access route regardless of current auth status.
- * - public_only: Only accessible if user is not logged in. Example would be the login route.
+ * - publicOnly: Only accessible if user is not logged in. Example would be the login route.
  * - private: Accessible to users after authentication.
  */
 export const AuthType = Object.freeze({
-  public: 1,
-  public_only: 2,
-  private: 3,
+  Public: 1,
+  PublicOnly: 2,
+  Private: 3,
 });
