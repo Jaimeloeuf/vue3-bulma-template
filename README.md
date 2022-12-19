@@ -34,13 +34,14 @@ Get started by
 
 ## Setup steps
 ### Required
-1. Update [package.json](./package.json)
-    - Set the package name and version
-    - Remember to run `npm i` after setting the package name and version to get npm to update your `package-lock.json` file's name and version too
+1. Set the package name and version in [package.json](./package.json)
+    - Remember to run `npm i` after this to get npm to update your `package-lock.json` file's name and version too
 1. Update the title of your application in [index.html](./index.html)
 1. Update the [favicon](./public/favicon.ico)
 1. Start creating your [Vue SFCs](https://vuejs.org/guide/scaling-up/sfc.html) in [views/](./src/views/) and [components/](./src/components/). You can reference the provided examples in the folders for how to create SFCs using the [Composition API](./src/components/TemplateComposition.vue)
 1. Set the base URL of the API library in [main.ts](./src/main.ts) for your own API service if any
+1. See [Router module's README](./src/router/README.md) to learn how to register a new Route with a view component, and how to create auth protected routes.
+    - By default all routes created will be public routes since there is no RouteGuard, see router's README on how to set it up.
 
 ### Optional
 1. Consider using the recommended development environment by following [this](#recommended-ide-setup)
@@ -55,6 +56,7 @@ Get started by
     - The file is there to make github pages deployments work, it is not required and can be left alone for almost all other deployment and hosting strategies.
     - See section on [github-pages deployment](#github-pages) for more details.
 1. By default, the Bulma CSS library dependency will be bundled on build, if you prefer using a CDN to load Bulma instead, follow the instructions in [main.ts](./src/main.ts) and [index.html](./index.html) to modify how Bulma is loaded.
+1. Update vue router to use History mode instead in [/src/router/Router.ts](./src/router/Router.ts)
 
 
 ## Dependencies
@@ -76,6 +78,7 @@ Get started by
 ## Technical details and notes
 - Although [Option API](./src/components/TemplateOptions.vue) can still be used, it is not recommended, as the only advantage to it compared to Composition API is that it makes migration from vue2 easier. Since this template is designed to make it easier to start new projects, there is no point in supporting the older API whose TS support is not as good too.
 - vue router is configured to use `# hashed based routing` rather than history mode
+    - But this can be changed in [/src/router/Router.ts](./src/router/Router.ts)
 - Basic PWA support is enabled by default, see [vite config](./vite.config.ts) for more details
 - In development mode, vite is configured to use HTTPS by default as many use cases such as getting camera access require application to be loaded over HTTPS.
 

@@ -21,12 +21,30 @@ oof.setBaseURL(
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
-import App from "./App.vue";
 
+// Defaults to the router with no Route Guard attached, where all routes are accessible
+// Replace this with the commented code below if you want to use a RouteGuard, see "/src/router/README.md"
 import { getRouter } from "./router";
+
+import App from "./App.vue";
 
 // Create new vue app
 createApp(App)
   .use(getRouter())
   .use(createPinia().use(piniaPluginPersistedstate))
   .mount("#app");
+
+// ***************  Code for using a router with route guard  ***************
+// import { createRouterWithGuard, HomeRoute, PrivateRoute } from "./router";
+// const customAuthPredicate = () => true;
+// // Create new vue app
+// createApp(App)
+//   .use(
+//     createRouterWithGuard(
+//       customAuthPredicate,
+//       HomeRoute.name,
+//       PrivateRoute.name
+//     )
+//   )
+//   .use(createPinia().use(piniaPluginPersistedstate))
+//   .mount("#app");
