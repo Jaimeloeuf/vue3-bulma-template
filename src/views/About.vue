@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { HomeRoute } from "../router";
+</script>
+
 <template>
   <div class="columns is-multiline mx-6 my-6">
     <div class="column is-full">
@@ -23,7 +27,7 @@
     <div class="column is-half">
       <router-link
         class="button is-light is-success is-fullwidth"
-        :to="{ name: 'home' }"
+        :to="{ name: HomeRoute.name }"
       >
         Home
       </router-link>

@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
+
+import { HomeRoute, AboutRoute } from "../router";
+
 const showMobileMenu = ref<boolean>(false);
 
 // @todo Add menu items as needed
 const menuItems = [
   {
     name: "About",
-    link: { name: "about" },
+    link: { name: AboutRoute.name },
   },
 ];
 </script>
@@ -15,7 +18,7 @@ const menuItems = [
   <!-- See class applied to the html tag in index.html for sticky navbar -->
   <nav id="nav" class="navbar is-fixed-top is-white" role="navigation">
     <div class="navbar-brand">
-      <router-link :to="{ name: 'home' }" class="navbar-item">
+      <router-link :to="{ name: HomeRoute.name }" class="navbar-item">
         <svg viewBox="0 0 128 128" width="24" height="24">
           <path
             fill="#42b883"

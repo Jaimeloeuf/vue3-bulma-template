@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { HomeRoute } from "../router";
+
 const loc = window.location.toString();
 
 // An example for a issue reporting function
@@ -62,7 +64,7 @@ async function report() {
     <div class="column">
       <router-link
         class="button is-light is-success is-fullwidth"
-        :to="{ name: 'home' }"
+        :to="{ name: HomeRoute.name }"
       >
         Home
       </router-link>
