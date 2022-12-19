@@ -56,7 +56,7 @@ createApp(App)
 1. Create a new Route Object for your new route, see the existing route objects on how to create it, or simply duplicate one to modify.
    - Make sure the `path` and `name` fields are **UNIQUE**
    - Make sure that the object has a const assertion
-1. Add the RouteObject to the typechecking array at the bottom of each route definition file to ensure that your Route Object is valid.
+1. Add the RouteObject to the typechecking array (named `PrivateRoutes` and `PublicRoutes`) near the bottom of each route definition file to ensure that your Route Object is valid.
 1. Add the Route Object to the Routes array in the [Routes module](./Routes.ts)
 1. DONE!
 

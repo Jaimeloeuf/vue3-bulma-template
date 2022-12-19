@@ -4,7 +4,8 @@ import type {
 } from "vue-router";
 
 import { type AuthTypes, AuthType } from "./AuthType";
-import type { RouteNames } from "./RouteNames";
+import type { PrivateRouteNames } from "./PrivateRoutes";
+import type { PublicRouteNames } from "./PublicRoutes";
 
 export type RouteGuard = NavigationGuardWithThis<undefined>;
 
@@ -44,8 +45,8 @@ const requiredAuth = (AuthRequirements?: AuthTypes) => ({
  */
 export const routeGuardFF = (
   authenticationPredicate: AuthenticationPredicate,
-  redirect_for_route_protected_but_not_authenticated: RouteNames,
-  redirect_for_route_public_only_but_authenticated: RouteNames
+  redirect_for_route_protected_but_not_authenticated: PublicRouteNames,
+  redirect_for_route_public_only_but_authenticated: PrivateRouteNames
 ): RouteGuard =>
   async function (to, from, next) {
     /** Get user's authentication status using the provided authentication predicate */

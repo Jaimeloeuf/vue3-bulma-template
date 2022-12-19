@@ -13,5 +13,4 @@ export * from "./PrivateRoutes";
 export * from "./PublicRoutes";
 
 export type { AuthenticationPredicate } from "./RouteGuard";
-export type { RouteNames } from "./RouteNames";
 export type { RouteGuard } from "./RouteGuard";

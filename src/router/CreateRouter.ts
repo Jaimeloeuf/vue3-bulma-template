@@ -1,6 +1,7 @@
 import { getRouter } from "./Router";
 import { routeGuardFF, type AuthenticationPredicate } from "./RouteGuard";
-import type { RouteNames } from "./RouteNames";
+import type { PrivateRouteNames } from "./PrivateRoutes";
+import type { PublicRouteNames } from "./PublicRoutes";
 import type { RouteGuard } from "./RouteGuard";
 
 /**
@@ -14,8 +15,8 @@ import type { RouteGuard } from "./RouteGuard";
  */
 export function createRouterWithGuard(
   authenticationPredicate: AuthenticationPredicate,
-  redirect_for_route_protected_but_not_authenticated: RouteNames = "home",
-  redirect_for_route_public_only_but_authenticated: RouteNames = "private-route"
+  redirect_for_route_protected_but_not_authenticated: PublicRouteNames = "home",
+  redirect_for_route_public_only_but_authenticated: PrivateRouteNames = "private-route"
 ) {
   const router = getRouter();
 

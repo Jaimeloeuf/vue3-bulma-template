@@ -27,22 +27,24 @@ type PrivateRoute = RouteRecordRaw & {
 };
 
 /**
- * This anonymous unbinded array is used internally only for typechecking purposes.
- * Uses the `satisfies` operator to typecheck that the AuthRequirements are valid.
+ * This array is only used internally for typechecking and type creation purposes
+ * only, and is never used as a value anywhere, therefore there is no need to worry
+ * about this array's runtime cost as this will be tree shaked away as dead code.
  *
  * Add all route objects defined in this file to this array for typechecking to
- * ensure that the route objects satisfies the `PrivateRoute` type constrain.
+ * ensure that the route objects satisfies the `PrivateRoute` type constrain using
+ * the `satisfies` operator.
  *
- * The alternative of this is to use the satisfies operator on every single Route
- * Object definition, but that is more tedious and error prone as they are all done
- * individually compared to this array type checking method which makes it readable.
- *
- * Also the RouteObjects cannot simply be annotated with the `PrivateRoute` type directly
- * at the point of creation, because that will widen the RouteObject type to be that of
- * `PrivateRoute` and ignore the const assertion, which is critical for treating the
- * `name` field as a string literal type for `RouteNames` type to be properly inferred.
- *
- * Since this array cant be referenced and used anywhere it will be tree shaked away,
- * therefore there is no need to worry about the runtime cost of this array.
+ * Typechecking is done here instead of doing it for every Route Object individually
+ * as the RouteObjects cannot be annotated with the `PrivateRoute` type directly at the
+ * point of creation as that will widen the RouteObject type to be that of `PrivateRoute`
+ * and ignore the const assertion, which is critical for treating the `name` field as
+ * a string literal type for `PrivateRouteNames` type to be properly inferred.
  */
-[PrivateRoute] satisfies Array<PrivateRoute>;
+const PrivateRoutes = [PrivateRoute] satisfies Array<PrivateRoute>;
+
+/**
+ * Sum type of all Private Route object names, used to constrain
+ * function parameters' type instead of just accepting string type.
+ */
+export type PrivateRouteNames = typeof PrivateRoutes[number]["name"];
