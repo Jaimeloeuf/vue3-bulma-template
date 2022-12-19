@@ -22,8 +22,11 @@ type RouteObject = RouteRecordRaw & {
  * All the **USER DEFINED** route objects to be registered with the router.
  * User MUST explicitly import route objects from their definition modules,
  * PrivateRoutes and PublicRoutes, and put it in this array for the router.
+ *
+ * The const assertion is used to ensure that this array cannot be modified
+ * during runtime, all route object registration must be done here.
  */
-export const Routes = [
+export const Routes = (<const>[
   // Private Routes
   PrivateRoute,
 
@@ -36,9 +39,4 @@ export const Routes = [
 
   // `satisfies` operator is used to typecheck all RouteObjects to ensure
   // that the AuthRequirements field is defined in the meta field.
-  //
-  // `as const` to narrow the type and make it as strict as possible.
-  //
-  // @todo However the chaining is not working for now, for the current TS/Prettier/Eslint version so not used yet.
-  // ] as const satisfies Array<RouteObject>;
-] satisfies Array<RouteObject>;
+]) satisfies ReadonlyArray<RouteObject>;
