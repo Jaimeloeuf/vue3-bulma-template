@@ -4,6 +4,8 @@ import LoaderUI from "./components/LoaderUI.vue";
 </script>
 
 <template>
+  <Navbar />
+
   <RouterView v-slot="{ Component }">
     <!--
       A timeout MUST BE specified for the fallback content to be shown by default.
@@ -36,13 +38,9 @@ import LoaderUI from "./components/LoaderUI.vue";
         https://stackoverflow.com/questions/10704575/is-there-any-html-element-without-any-style
         https://caniuse.com/css-display-contents
       -->
-      <div>
-        <Navbar />
-
+      <div class="container">
         <!-- Center router view element horizontally -->
-        <div class="container">
-          <component :is="Component" />
-        </div>
+        <component :is="Component" />
       </div>
 
       <!-- Loading UI shown when router component with async setup script is still not resolved -->
