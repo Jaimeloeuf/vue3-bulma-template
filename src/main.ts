@@ -28,10 +28,13 @@ import { getRouter } from "./router";
 
 import App from "./App.vue";
 
+import { GlobalLoaderInstaller } from "vue-loader-component";
+
 // Create new vue app
 createApp(App)
   .use(getRouter())
   .use(createPinia().use(piniaPluginPersistedstate))
+  .use(GlobalLoaderInstaller)
   .mount("#app");
 
 // ***************  Code for using a router with route guard  ***************

@@ -20,6 +20,7 @@
     "pinia-plugin-persistedstate": "^3.0.1",
     "simpler-fetch": "^8.0.0",
     "vue": "^3.2.45",
+    "vue-loader-component": "github:Enkel-Digital/vue-loader-component",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

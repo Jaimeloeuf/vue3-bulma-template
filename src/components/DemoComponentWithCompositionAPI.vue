@@ -12,6 +12,7 @@ import { useStore } from "../store/index";
 
 const newName = ref<string | undefined>(undefined);
 const value = ref<object | undefined>(undefined);
+const loading = ref<boolean>(false);
 
 // See documentation on using props as initial value without subscribing to changes
 // https://vuejs.org/guide/components/props.html#one-way-data-flow
@@ -36,6 +37,8 @@ function updateName() {
 
 // Method to call API for data and set data variable with response
 async function getData() {
+  loading.value = true;
+
   const { res, err } = await oof
     .GET("https://jsonplaceholder.typicode.com/todos/1")
     .once()
@@ -45,115 +48,122 @@ async function getData() {
   if (!res.ok) return alert(`Failed to get data: ${res}`);
 
   value.value = res;
+
+  loading.value = false;
 }
 </script>
 
 <template>
-  <div class="section">
-    <!-- Named slot, see usage in Home.vue -->
-    <slot name="title"></slot>
+  <!-- Fullscreen loader shown when waiting for API call result -->
+  <FullscreenLoader :show="loading">
+    <div class="section">
+      <!-- Named slot, see usage in Home.vue -->
+      <slot name="title">
+        <p class="title mx-3">Default Title</p>
+      </slot>
 
-    <div class="box m-3">
-      <p class="subtitle mb-2">Prop value from parent component (Home.vue)</p>
+      <div class="box m-3">
+        <p class="subtitle mb-2">Prop value from parent component (Home.vue)</p>
 
-      {{ new Date(timeAsProp) }}
-    </div>
+        {{ new Date(timeAsProp) }}
+      </div>
 
-    <div class="box m-3">
-      <p class="subtitle">State variable from store</p>
+      <div class="box m-3">
+        <p class="subtitle">State variable from store</p>
 
-      name: {{ mainStore.name }}
-      <br />
+        name: {{ mainStore.name }}
+        <br />
 
-      random: {{ mainStore.random }}
-    </div>
+        random: {{ mainStore.random }}
+      </div>
 
-    <div class="box m-3">
-      <label>
-        Enter a new name
+      <div class="box m-3">
+        <label>
+          Enter a new name
 
-        <div class="field has-addons">
-          <div class="control is-expanded">
-            <input
-              v-model="newName"
-              type="text"
-              class="input"
-              placeholder="New Name"
-              @keypress.enter="updateName"
-            />
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input
+                v-model="newName"
+                type="text"
+                class="input"
+                placeholder="New Name"
+                @keypress.enter="updateName"
+              />
+            </div>
+            <div class="control">
+              <button class="button is-info" @click="updateName">Update</button>
+            </div>
           </div>
-          <div class="control">
-            <button class="button is-info" @click="updateName">Update</button>
+        </label>
+      </div>
+
+      <div class="box m-3">
+        <label>
+          Direct 2 way binding using v-model with state variable from store
+
+          <input
+            v-model="mainStore.name"
+            type="text"
+            class="input"
+            placeholder="XXX to directly binded to store"
+          />
+        </label>
+      </div>
+
+      <div class="box m-3">
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p class="subtitle">All data in mainStore</p>
+          </div>
+
+          <div class="column is-narrow">
+            <button
+              class="button is-light is-warning"
+              @click="mainStore.updateRandom"
+            >
+              Update 'random'
+            </button>
+          </div>
+
+          <div class="column is-narrow">
+            <button class="button is-light is-danger" @click="mainStore.$reset">
+              Reset State
+            </button>
           </div>
         </div>
-      </label>
-    </div>
 
-    <div class="box m-3">
-      <label>
-        Direct 2 way binding using v-model with state variable from store
-
-        <input
-          v-model="mainStore.name"
-          type="text"
-          class="input"
-          placeholder="XXX to directly binded to store"
-        />
-      </label>
-    </div>
-
-    <div class="box m-3">
-      <div class="columns is-vcentered">
-        <div class="column">
-          <p class="subtitle">All data in mainStore</p>
-        </div>
-
-        <div class="column is-narrow">
-          <button
-            class="button is-light is-warning"
-            @click="mainStore.updateRandom"
-          >
-            Update 'random'
-          </button>
-        </div>
-
-        <div class="column is-narrow">
-          <button class="button is-light is-danger" @click="mainStore.$reset">
-            Reset State
-          </button>
-        </div>
+        <code>
+          {{ mainStore }}
+        </code>
       </div>
 
-      <code>
-        {{ mainStore }}
-      </code>
-    </div>
+      <div class="box m-3">
+        <p class="subtitle">Test API method</p>
 
-    <div class="box m-3">
-      <p class="subtitle">Test API method</p>
-
-      <div class="columns">
-        <div class="column is-half">
-          <button
-            class="button is-light is-danger is-fullwidth"
-            @click="value = undefined"
-          >
-            Clear Data
-          </button>
+        <div class="columns">
+          <div class="column is-half">
+            <button
+              class="button is-light is-danger is-fullwidth"
+              @click="value = undefined"
+            >
+              Clear Data
+            </button>
+          </div>
+          <div class="column is-half">
+            <button
+              class="button is-light is-success is-fullwidth"
+              @click="getData"
+            >
+              Get Data
+            </button>
+          </div>
         </div>
-        <div class="column is-half">
-          <button
-            class="button is-light is-success is-fullwidth"
-            @click="getData"
-          >
-            Get Data
-          </button>
+
+        <div v-if="value" class="mt-5">
+          <code>{{ value }}</code>
         </div>
       </div>
-
-      <div v-if="value" class="mt-5">
-        <code>{{ value }}</code>
-      </div>
     </div>
-  </div>
+  </FullscreenLoader>
 </template>
